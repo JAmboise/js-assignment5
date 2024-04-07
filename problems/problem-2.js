@@ -49,6 +49,18 @@ const strings = [
 	'"firstName":"Mace","lastName":"Windu","age":53,"occupation":"Jedi","homePlanet":"Haruun Kal"'
 ]
 
-const jedi = strings // append your code here
+// append your code here
+const jedi = strings
+	.map(str => { // what does str mean? it is a stringify objects
+		const obj = JSON.parse(`{${str}}`)
+		return obj.occupation === 'Jedi' ? obj : null 
+	})
+	.filter(obj => obj !== null)
+
+console.log(jedi)
 
 test("Problem 2", jedi)
+
+
+//Filter: Create a new array with all elements that pass the test implemented by the provided function
+//Map: Create a new array with the results of calling a provided function on every element in the calling array
